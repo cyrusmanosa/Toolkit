@@ -142,3 +142,5 @@ func TestTools_UploadOneFile(t *testing.T) {
 
 	os.Remove(fmt.Sprintf("./testdata/uploads/%s", uploadedFiles.NewFileName))
 }
+
+//
