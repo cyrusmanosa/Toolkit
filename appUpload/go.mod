@@ -1,3 +1,3 @@
-module app-upload
+module appUpload
 
 go 1.22.5
