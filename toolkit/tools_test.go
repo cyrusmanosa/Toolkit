@@ -68,12 +68,13 @@ func TestTools_UploadFiles(t *testing.T) {
 			}
 		}()
 
-		// Read and Upload Test File
+		// read from the pipe which receives data
 		request := httptest.NewRequest("POST", "/", pr)
 		request.Header.Add("Content-Type", writer.FormDataContentType())
 
 		var testTools Tools
 		testTools.AllowedFileTypes = e.allowedTypes
+
 		uploadedFiles, err := testTools.UploadFiles(request, "./testdata/uploads/", e.renameFile)
 		if err != nil && !e.errorExpected {
 			t.Error(err)
@@ -84,12 +85,14 @@ func TestTools_UploadFiles(t *testing.T) {
 				t.Errorf("%s: expected file to exist: %s", e.name, err.Error())
 			}
 
-			os.Remove(fmt.Sprintf("./testdata/uploads/%s", uploadedFiles[0].NewFileName))
+			// clean up
+			_ = os.Remove(fmt.Sprintf("./testdata/uploads/%s", uploadedFiles[0].NewFileName))
 		}
 
 		if !e.errorExpected && err != nil {
 			t.Errorf("%s: error expected but none received", e.name)
 		}
+
 		wg.Wait()
 	}
 }
@@ -143,6 +146,17 @@ func TestTools_UploadOneFile(t *testing.T) {
 	os.Remove(fmt.Sprintf("./testdata/uploads/%s", uploadedFiles.NewFileName))
 }
 
-//
+func TestTools_CreateDirIfNotExist(t *testing.T) {
+	var testTools Tools
 
-///----------------------------------------------------------------
+	err := testTools.CreateDirIfNotExist("./testdata/myDir")
+	if err != nil {
+		t.Error(err)
+	}
+	err = testTools.CreateDirIfNotExist("./testdata/myDir")
+	if err != nil {
+		t.Error(err)
+	}
+
+	os.Remove("./testdata/myDir")
+}
