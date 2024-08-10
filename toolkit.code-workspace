@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "appDownload"
+		},
+		{
+			"path": "appJson"
 		}
 	]
 }

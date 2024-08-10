@@ -4,7 +4,8 @@ use (
 	./app
 	./appDir
 	./appDownload
+	./appJson
 	./appSlug
-	./appupload
+	./appUpload
 	./toolkit
 )
