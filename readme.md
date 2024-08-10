@@ -16,4 +16,4 @@ The included tools are:
 
 ## Installation
 
-`go get -u github.com/cyrusmanosa/Toolkit`
+`go get -u github.com/cyrusmanosa/Toolkit/v2`
