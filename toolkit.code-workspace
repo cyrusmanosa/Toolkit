@@ -1,25 +1,7 @@
 {
-	"folders": [
-		{
-			"path": "toolkit"
-		},
-		{
-			"path": "app"
-		},
-		{
-			"path": "appUpload"
-		},
-		{
-			"path": "appDir"
-		},
-		{
-			"path": "appSlug"
-		},
-		{
-			"path": "appDownload"
-		},
-		{
-			"path": "appJson"
-		}
-	]
+    "folders": [
+        {
+            "path": "."
+        }
+    ]
 }
