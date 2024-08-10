@@ -17,3 +17,7 @@ The included tools are:
 ## Installation
 
 `go get -u github.com/cyrusmanosa/toolkit`
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/lecture9

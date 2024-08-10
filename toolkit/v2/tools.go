@@ -1,9 +1,13 @@
 package toolkit
 
 import (
+<<<<<<< HEAD
 	"bytes"
 	"crypto/rand"
 	"encoding/json"
+=======
+	"crypto/rand"
+>>>>>>> origin/lecture9
 	"errors"
 	"fmt"
 	"io"
@@ -17,10 +21,15 @@ import (
 const randomStringSource = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_+"
 
 type Tools struct {
+<<<<<<< HEAD
 	MaxFileSize        int
 	AllowedFileTypes   []string
 	MaxJSONSize        int
 	AllowUnknownFields bool
+=======
+	MaxFileSize      int
+	AllowedFileTypes []string
+>>>>>>> origin/lecture9
 }
 
 type UploadedFile struct {
@@ -155,6 +164,10 @@ func (t *Tools) CreateDirIfNotExist(path string) error {
 			return err
 		}
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/lecture9
 	return nil
 }
 
@@ -173,12 +186,17 @@ func (t *Tools) Slugify(s string) (string, error) {
 }
 
 // DownloadStaticFile a file and tries to force the browser to avoid displaying it in the browser window by setting content disposition.
+<<<<<<< HEAD
 // It also allows specification of the display name
+=======
+// It also allows spec
+>>>>>>> origin/lecture9
 func (t *Tools) DownloadStaticFile(w http.ResponseWriter, r *http.Request, pathName, displayName string) {
 	w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=\"%s\"", displayName))
 
 	http.ServeFile(w, r, pathName)
 }
+<<<<<<< HEAD
 
 // JSONResponse is the type used of sending JSON around
 type JSONResponse struct {
@@ -316,3 +334,5 @@ func (t *Tools) PushJSONToRemote(uri string, data interface{}, client ...*http.C
 	// send response back
 	return response, response.StatusCode, nil
 }
+=======
+>>>>>>> origin/lecture9

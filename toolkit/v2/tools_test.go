@@ -1,9 +1,12 @@
 package toolkit
 
 import (
+<<<<<<< HEAD
 	"bytes"
 	"encoding/json"
 	"errors"
+=======
+>>>>>>> origin/lecture9
 	"fmt"
 	"image"
 	"image/png"
@@ -16,6 +19,7 @@ import (
 	"testing"
 )
 
+<<<<<<< HEAD
 type RoundTripFunc func(req *http.Request) *http.Response
 
 func (f RoundTripFunc) RoundTrip(req *http.Request) (*http.Response, error) {
@@ -50,6 +54,8 @@ func TestTools_PushJSONToRemote(t *testing.T) {
 	}
 }
 
+=======
+>>>>>>> origin/lecture9
 func TestTools_RandomString(t *testing.T) {
 	var testTools Tools
 
@@ -276,6 +282,7 @@ func TestTools_DownloadStaticFile(t *testing.T) {
 		t.Error(err)
 	}
 }
+<<<<<<< HEAD
 
 var jsonTests = []struct {
 	name          string
@@ -371,3 +378,5 @@ func TestTools_ErrorJSON(t *testing.T) {
 		t.Errorf("wrong status code returned; expected 503, but got %d", rr.Code)
 	}
 }
+=======
+>>>>>>> origin/lecture9
