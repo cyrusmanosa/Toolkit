@@ -17,7 +17,7 @@ func UploadFiles(w http.ResponseWriter, r *http.Request) {
 		AllowedFileTypes: []string{"application/pdf"},
 	}
 
-	files, err := t.UploadFiles(r, "/Users/cyrusman/Desktop/ProgrammingLearning/Udemy/Toolkit/appTest/UploadTest/uploads")
+	files, err := t.UploadFiles(r, "/Users/cyrusman/Desktop/ProgrammingLearning/Udemy/Toolkit/appTest/Mux/UploadTest/uploads")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 	}

@@ -21,7 +21,7 @@ func UploadOneFiles(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 
-	files, err := t.UploadOneFile(r, "/Users/cyrusman/Desktop/ProgrammingLearning/Udemy/Toolkit/appTest/UploadTest/uploads")
+	files, err := t.UploadOneFile(r, "/Users/cyrusman/Desktop/ProgrammingLearning/Udemy/Toolkit/appTest/Mux/UploadTest/uploads")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 	}
