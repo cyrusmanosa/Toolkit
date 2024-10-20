@@ -13,8 +13,12 @@ func UploadOneFiles(w http.ResponseWriter, r *http.Request) {
 	}
 
 	t := toolkit.Tools{
-		MaxFileSize:      1024 * 1024 * 1024,
-		AllowedFileTypes: []string{"application/pdf"},
+		MaxFileSize: 1024 * 1024 * 1024,
+		AllowedFileTypes: []string{
+			"application/pdf",
+			"image/jpeg", // For JPEG and JPG
+			"image/png",  // For PNG
+		},
 	}
 
 	files, err := t.UploadOneFile(r, "/Users/cyrusman/Desktop/ProgrammingLearning/Udemy/Toolkit/appTest/UploadTest/uploads")
