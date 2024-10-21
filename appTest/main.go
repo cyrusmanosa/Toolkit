@@ -13,12 +13,13 @@ import (
 )
 
 func main() {
-	GinMode()
-}
-
-func MuxMode() {
+	//// ------------------------------ Mux ----------------------------------
 	// MuxLoginRoutes()
-	MuxUploadRoutes()
+	// MuxUploadRoutes()
+
+	//// ------------------------------ GIN ----------------------------------
+	// ginLoginRouters()
+	ginUploadRouters()
 }
 
 func MuxLoginRoutes() {
@@ -53,22 +54,13 @@ func MuxUploadRoutes() {
 	}
 }
 
-//// ------------------------------ GIN ----------------------------------
-
-func GinMode() {
-	// ginLoginRouters()
-	ginUploadRouters()
-}
-
 func ginLoginRouters() {
 	r := gin.Default()
 	r.Use(cors.Default())
 
 	r.LoadHTMLFiles("/Users/cyrusman/Desktop/ProgrammingLearning/Udemy/Toolkit/appTest/Gin/LoginTest/index.html")
-
-	// Serve the HTML file at the root URL
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil) // Serve the loaded HTML file
+		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
 	r.POST("/api/login", ginLoginTest.Login)
@@ -83,10 +75,8 @@ func ginUploadRouters() {
 	r.Use(cors.Default())
 
 	r.LoadHTMLFiles("/Users/cyrusman/Desktop/ProgrammingLearning/Udemy/Toolkit/appTest/Gin/UploadTest/index.html")
-
-	// Serve the HTML file at the root URL
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil) // Serve the loaded HTML file
+		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
 	r.POST("/upload", ginUploadTest.UploadFiles)
