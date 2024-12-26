@@ -11,8 +11,7 @@ func TestTools_DownloadStaticFile(t *testing.T) {
 	r := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/", nil)
 
-	var testTool Tools
-	testTool.DownloadStaticFile(r, req, "./testdata/ABCD.jpg", "CodeList.jpg")
+	DownloadStaticFile(r, req, "./testdata/ABCD.jpg", "CodeList.jpg")
 
 	res := r.Result()
 	defer res.Body.Close()

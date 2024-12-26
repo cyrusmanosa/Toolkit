@@ -3,7 +3,7 @@ package toolkit
 import "os"
 
 // Create a directory , and all necessary parents, if it does not exist
-func (t *Tools) CreateDirIfNotExist(path string) error {
+func CreateDirIfNotExist(path string) error {
 	const mode = 0755
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		err := os.MkdirAll(path, mode)

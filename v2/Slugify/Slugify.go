@@ -7,7 +7,9 @@ import (
 )
 
 // Slugify is a very simple means of creating a slug from a string
-func (t *Tools) Slugify(s string) (string, error) {
+// example: 「 Hello World! This is a test. 」 => 「 hello-world-this-is-a-test 」
+
+func Slugify(s string) (string, error) {
 	if s == "" {
 		return "", errors.New("empty string not permitted")
 	}
@@ -17,5 +19,6 @@ func (t *Tools) Slugify(s string) (string, error) {
 	if len(slug) == 0 {
 		return "", errors.New("after removing characters, slug is zero length")
 	}
+
 	return slug, nil
 }

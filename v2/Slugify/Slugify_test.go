@@ -41,11 +41,8 @@ var slugTests = []struct {
 }
 
 func TestTools_Slugify(t *testing.T) {
-	var testTool Tools
-
 	for _, e := range slugTests {
-
-		slug, err := testTool.Slugify(e.s)
+		slug, err := Slugify(e.s)
 		if err != nil && !e.errorExpected {
 			t.Errorf("%s: error received when none expected: %s", e.name, err.Error())
 		}

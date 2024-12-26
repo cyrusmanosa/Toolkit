@@ -8,6 +8,9 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	Crete "github.com/cyrusmanosa/Toolkit/v2/CreateDirIfNotExist"
+	Random "github.com/cyrusmanosa/Toolkit/v2/Random"
 )
 
 func (t *Tools) UploadFiles(r *http.Request, uploadDir string, rename ...bool) ([]*UploadedFile, error) {
@@ -20,16 +23,19 @@ func (t *Tools) UploadFiles(r *http.Request, uploadDir string, rename ...bool) (
 		t.MaxFileSize = 1024 * 1024 * 1024
 	}
 
-	err := t.CreateDirIfNotExist(uploadDir)
+	// Check Folder is Exists
+	err := Crete.CreateDirIfNotExist(uploadDir)
 	if err != nil {
 		return nil, err
 	}
 
+	// Parse Multipart Form
 	err = r.ParseMultipartForm(int64(t.MaxFileSize))
 	if err != nil {
 		return nil, errors.New("the uploaded file is too big")
 	}
 
+	// Iterate through each file
 	for _, fHeaders := range r.MultipartForm.File {
 		for _, hdr := range fHeaders {
 			uploadedFiles, err = func(uploadedFiles []*UploadedFile) ([]*UploadedFile, error) {
@@ -70,7 +76,7 @@ func (t *Tools) UploadFiles(r *http.Request, uploadDir string, rename ...bool) (
 				}
 
 				if renameFile {
-					uploadedFile.NewFileName = fmt.Sprintf("%s%s", t.RandomString(25), filepath.Ext(hdr.Filename))
+					uploadedFile.NewFileName = fmt.Sprintf("%s%s", Random.RandomString(25), filepath.Ext(hdr.Filename))
 				} else {
 					uploadedFile.NewFileName = hdr.Filename
 				}
@@ -99,5 +105,6 @@ func (t *Tools) UploadFiles(r *http.Request, uploadDir string, rename ...bool) (
 			}
 		}
 	}
+
 	return uploadedFiles, nil
 }

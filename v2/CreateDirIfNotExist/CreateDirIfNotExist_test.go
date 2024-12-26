@@ -6,13 +6,11 @@ import (
 )
 
 func TestTools_CreateDirIfNotExist(t *testing.T) {
-	var testTools Tools
-
-	err := testTools.CreateDirIfNotExist("./testdata/myDir")
+	err := CreateDirIfNotExist("../testdata/myDir")
 	if err != nil {
 		t.Error(err)
 	}
-	err = testTools.CreateDirIfNotExist("./testdata/myDir")
+	err = CreateDirIfNotExist("../testdata/myDir")
 	if err != nil {
 		t.Error(err)
 	}
