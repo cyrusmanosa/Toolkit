@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	Crete "github.com/cyrusmanosa/Toolkit/v2/CreateDirIfNotExist"
-	Random "github.com/cyrusmanosa/Toolkit/v2/Random"
+	Crete "github.com/cyrusmanosa/Toolkit/v2/create-dir-if-not-exist"
+	Random "github.com/cyrusmanosa/Toolkit/v2/random"
 )
 
 func (t *Tools) UploadFiles(r *http.Request, uploadDir string, rename ...bool) ([]*UploadedFile, error) {
